@@ -12,20 +12,24 @@
 
   <body>
 
-    <div>
-      <% if logged_in? %>
-        <%= link_to "Add Project", new_project_path %>
-        <%= link_to "All Projects", projects_path %>
-        <%= link_to "My Projects", user_projects_path %>
-        <%= link_to "Add a Task", new_task_path %>
-        <%= link_to "Home", user_path(current_user) %>
-        <%= link_to "Logout", logout_path, method: "delete" %>
-      <% else %>
-        <%= link_to "Sign Up", signup_path %>
-        <%= link_to "Log In", login_path%>
-        <%= link_to "Log In With Google", '/auth/google_oauth2' %>
-      <% end %>
-    </div>
+    <nav>
+      <div class="container">
+        <ul class="right">
+          <% if logged_in? %>
+            <%= link_to "Add Project", new_project_path %>
+            <%= link_to "All Projects", projects_path %>
+            <%= link_to "My Projects", user_projects_path %>
+            <%= link_to "Add a Task", new_task_path %>
+            <%= link_to "Home", user_path(current_user) %>
+            <%= link_to "Logout", logout_path, method: "delete" %>
+          <% else %>
+            <%= link_to "Sign Up", signup_path %>
+            <%= link_to "Log In", login_path%>
+            <%= link_to "Log In With Google", '/auth/google_oauth2' %>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
 
     <div>
       <% if flash[:message] %>
