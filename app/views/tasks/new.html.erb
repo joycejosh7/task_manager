@@ -1,4 +1,4 @@
-<% if @task.post %>
+<% if @task.project %>
     <h1>New Task for <%= @task.project.title%></h1>
 <% else %>
     <h1>New Task</h1>
@@ -15,17 +15,18 @@
         <%= f.collection_select :project_id, Project.all, :id, :title %>
     <% else %>
         <%= f.hidden_field :project_id %>
+        Project Due Date: <%= pretty_date(@task.project.due_date)%>
     <% end %>
-
+    <br>
     <%= f.label :name, "Name of task" %>
     <%= f.text_field :name %>
-
+    <br>
     <%= f.label :description, "Description of the Task " %>
     <%= f.text_area :description %>
-
+    <br>
     <%= f.label :due_by, "When is the Task Due?" %>
     <%= f.date_field :due_by %>
-
+    <br>
     <%= f.submit %>
 
 <% end %> 
