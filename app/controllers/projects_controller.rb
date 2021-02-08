@@ -24,8 +24,6 @@ class ProjectsController < ApplicationController
     end
 
     def edit
-        @project = Project.find_by_id(params[:id])
-        redirect_to projects_path if !@project || @project.user != current_user
     end
   
     def update
@@ -38,8 +36,6 @@ class ProjectsController < ApplicationController
     end
 
     def show
-        @project = Project.find_by_id(params[:id])
-        redirect_to projects_path if !@project
     end
 
     def destroy
