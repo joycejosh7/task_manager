@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
 
   #omniauth callback route
-  get "/auth/:provider/callback" => 'sessions#google'
+  match "/auth/:google_oauth2/callback" => 'sessions#google', via: [:get, :post]
 
   resources :projects do
     resources :tasks
